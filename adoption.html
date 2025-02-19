@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adoptionStyle.css">
+    <link href="https://fonts.cdnfonts.com/css/hangyaboly" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>FurAHeart Adoption</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const contactButtons = document.querySelectorAll(".adopt-button:nth-of-type(2)");
+            contactButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+
+                    const petCard = this.parentElement;
+                    const contactDetails = petCard.querySelectorAll(".contact");
+                    contactDetails.forEach(contact => {
+                        contact.style.display = contact.style.display === "block" ? "none" : "block";
+                    });
+                });
+            });
+        });
+        function openAdoptForm(petName) {
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("adoptFormPopup").style.display = "block";
+
+            document.querySelector("#adoptFormPopup h3").textContent = "Adopt " + petName;
+        }
+
+        function closeAdoptForm() {
+            
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("adoptFormPopup").style.display = "none";
+            const form = document.querySelector('#adoptForm');
+            form.reset();
+        }
+
+        document.getElementById("overlay").addEventListener("click", closeAdoptForm);
+    </script>
+</head>
+
+<body>
+
+    <header id="HomePageHeader">
+        <div class="left">
+            <a href="aboutUs.html">ABOUT US</a>
+            <a href="donation.html">GET INVOLVED</a>
+            <div class="down">
+                <i class="bx bxs-envelope"></i>
+                FURAHEARTDONATION@GMAIL.COM
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="logo" onclick="window.location.href='index.html'">
+                FurAHeart<br />
+                <span class="logo">Donation Website</span>
+            </div>
+        </div>
+        <div class="right">
+            <a href="aboutUs.html">CONTACT US</a>
+            <div class="down_right">
+                <i class="bx bxs-phone-call"></i>
+                <span>#123-456-789</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Pet Adoption Listings</h1>
+        <div class="adoption-list">
+            <div class="pet-card">
+                <img src="Adoption Pictures/calico.jpg" alt="Pet 1">
+                <h2>Cubby</h2>
+                <p><strong>Age:</strong> 2 years</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Breed:</strong> Calico</p>
+                <p><strong>Location:</strong> Makati City</p>
+                <p><strong>Conditions:</strong> Neutered, Vaccinated</p>
+                <p><strong>Attitude:</strong> Friendly, Energetic</p>
+                <button class="adopt-button" onclick="openAdoptForm('Buddy')">Adopt</button>
+                <button class="adopt-button">Contact</button>
+                <p class="contact"><i class='bx bx-user-pin'></i>Anthony Ormasa</p>
+                <p class="contact"><i class='bx bxs-phone'></i>#XXXXXXXXXXXX</p>
+                <p class="contact"><i class='bx bxl-telegram'></i>@ABCDEFJKIL</p>
+                <p class="contact"><i class='bx bxl-gmail'></i> AnthonyOrmasa@gmail.com</p>
+            </div>
+            <div class="pet-card">
+                <img src="Adoption Pictures/goldretriever.jpg" alt="Pet 3">
+                <h2>Doggo</h2>
+                <p><strong>Age:</strong> 1 year</p>
+                <p><strong>Gender:</strong> Male</p>
+                <p><strong>Breed:</strong> Golden Retriever</p>
+                <p><strong>Location:</strong> Taguig City</p>
+                <p><strong>Conditions:</strong> Neutered, Vaccinated</p>
+                <p><strong>Attitude:</strong> Timid</p>
+                <button class="adopt-button" onclick="openAdoptForm('Buddy')">Adopt</button>
+                <button class="adopt-button">Contact</button>
+                <p class="contact"><i class='bx bx-user-pin'></i>Anthony Ormasa</p>
+                <p class="contact"><i class='bx bxs-phone'></i>#XXXXXXXXXXXX</p>
+                <p class="contact"><i class='bx bxl-telegram'></i>@ABCDEFJKIL</p>
+                <p class="contact"><i class='bx bxl-gmail'></i> AnthonyOrmasa@gmail.com</p>
+
+
+            </div>
+            <div class="pet-card">
+                <img src="Adoption Pictures/hotdog.jpg" alt="Pet 2">
+                <h2>Hotdog</h2>
+                <p><strong>Age:</strong> 3 years</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Breed:</strong> Daschund</p>
+                <p><strong>Location:</strong> Paranaque City</p>
+                <p><strong>Conditions:</strong> Spayed, Vaccinated</p>
+                <p><strong>Attitude:</strong> Playful, Affectionate</p>
+                <button class="adopt-button" onclick="openAdoptForm('Buddy')">Adopt</button>
+                <button class="adopt-button">Contact</button>
+                <p class="contact"><i class='bx bx-user-pin'></i>Anthony Ormasa</p>
+                <p class="contact"><i class='bx bxs-phone'></i>#XXXXXXXXXXXX</p>
+                <p class="contact"><i class='bx bxl-telegram'></i>@ABCDEFJKIL</p>
+                <p class="contact"><i class='bx bxl-gmail'></i> AnthonyOrmasa@gmail.com</p>
+
+
+            </div>
+            <div class="pet-card">
+                <img src="Adoption Pictures/funny cat.jpg" alt="Pet 3">
+                <h2>Max</h2>
+                <p><strong>Age:</strong> 1 year</p>
+                <p><strong>Gender:</strong> Male</p>
+                <p><strong>Breed:</strong> Persian</p>
+                <p><strong>Location:</strong> Taguig City</p>
+                <p><strong>Conditions:</strong> Neutered, Vaccinated</p>
+                <p><strong>Attitude:</strong> Curious, Friendly</p>
+                <button class="adopt-button" onclick="openAdoptForm('Buddy')">Adopt</button>
+                <button class="adopt-button">Contact</button>
+                <p class="contact"><i class='bx bx-user-pin'></i>Anthony Ormasa</p>
+                <p class="contact"><i class='bx bxs-phone'></i>#XXXXXXXXXXXX</p>
+                <p class="contact"><i class='bx bxl-telegram'></i>@ABCDEFJKIL</p>
+                <p class="contact"><i class='bx bxl-gmail'></i> AnthonyOrmasa@gmail.com</p>
+
+
+            </div>
+            <div class="pet-card">
+                <img src="Adoption Pictures/persian.jpg" alt="Pet 3">
+                <h2>Thomas</h2>
+                <p><strong>Age:</strong> 1 year</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Breed:</strong> Persian</p>
+                <p><strong>Location:</strong> Pasay City</p>
+                <p><strong>Conditions:</strong> Neutered, Vaccinated</p>
+                <p><strong>Attitude:</strong> Very Energetic</p>
+                <button class="adopt-button" onclick="openAdoptForm('Buddy')">Adopt</button>
+                <button class="adopt-button">Contact</button>
+                <p class="contact"><i class='bx bx-user-pin'></i>Anthony Ormasa</p>
+                <p class="contact"><i class='bx bxs-phone'></i>#XXXXXXXXXXXX</p>
+                <p class="contact"><i class='bx bxl-telegram'></i>@ABCDEFJKIL</p>
+                <p class="contact"><i class='bx bxl-gmail'></i> AnthonyOrmasa@gmail.com</p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="adopt-form-popup" id="adoptFormPopup">
+        <h3>Adopt Buddy</h3>
+        <form id="adoptForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+
+            <label for="pets">Do you have other pets?</label>
+            <select id="pets" name="pets" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br><br>
+
+            <button type="submit" class="adopt-button">Submit</button>
+            <button type="button" class="close-btn" onclick="closeAdoptForm()">Close</button>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+</html>

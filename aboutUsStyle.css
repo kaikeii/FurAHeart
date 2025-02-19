@@ -1,0 +1,229 @@
+/* General Styles */
+* {
+    margin: 0;
+    font-family: fantasy;
+  }
+  
+  body {
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+    background: linear-gradient(135deg, rgba(94, 37, 113, 0.8) 0%, rgba(92, 42, 104, 0.8) 30%, rgba(40, 55, 130, 0.8) 65%, rgba(85, 120, 220, 0.8) 100%);
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
+  
+  /* Header Styles */
+  #HomePageHeader {
+    color: #b426b9;
+    padding: 10px;
+    display: flex;
+    background: linear-gradient(to bottom, white, #d3d3d3);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    border: 2px solid black;
+  }
+  
+  header .left,
+  header .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  header .left a,
+  header .right a {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  header .down {
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+  }
+  
+  header .center {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  header .logo {
+    font-size: 60px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-family: "Hangyaboly", sans-serif;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+  }
+  
+  header .logo span.logo {
+    position: relative;
+    top: -30px; 
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+  }
+  
+  /* Mission & Vision Section */
+  .mission-vision {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px;
+    border-radius: 10px;
+  }
+
+  .team-introduction {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px;
+    justify-items: center;
+    border-radius: 10px;
+  }
+  .team-introduction h1 {
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    font-family: "Hangyaboly", sans-serif;
+  }
+  
+  .mission-vision h2 {
+    font-size: 24px;
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    font-family: "Hangyaboly", sans-serif;
+
+  }
+  .mission-vision p {
+    font-size: 24px;
+    font-family: "Hangyaboly", sans-serif;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    
+
+  }
+  
+  /* Team Section */
+  .team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    padding: 40px;
+  }
+
+  
+  .team-member .card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 400px;
+    text-align: center;
+  }
+  .profile-img {
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover;
+    border-radius: 50%; 
+  }
+  
+  .team-member h3 {
+    margin-top: 10px;
+    
+  }
+  
+  .team-member p {
+    margin: 5px 0;
+  }
+  
+  /* Mini Blog Section */
+  .mini-blog {
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px;
+    
+    border-radius: 10px;
+  }
+  
+  .mini-blog h2 {
+    font-size: 24px;
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    font-family: "Hangyaboly", sans-serif;
+
+    margin-bottom: 10px;
+  }
+  .mini-blog p {
+    color: rgba(255, 217, 0, 0.977);
+    font-size: 20px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    font-family: "Hangyaboly", sans-serif;
+  }
+  
+  /* Contact Us Section */
+  .contact-us {
+    padding: 40px;
+    color: rgba(255, 217, 0, 0.977);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
+    font-family: "Hangyaboly", sans-serif;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 20px;
+    border-radius: 10px;
+  }
+ 
+  
+  .contact-us h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-us form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-us label {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .contact-us input,
+  .contact-us textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+ 
+  .contact-us button {
+    width: 100px;
+    padding: 12px 30px;
+    font-size: 18px; 
+    background: linear-gradient(to bottom, #674a7a 5%, #1b122d 100%); 
+    color: white;
+    font-family: "Hangyaboly", sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .contact-us button:hover {
+    background: linear-gradient(to bottom, #1b122d 5%, #674a7a 100%);
+  }
+  
+  

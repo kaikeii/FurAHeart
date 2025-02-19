@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurAHeart Donation</title>
+    <link rel="stylesheet" href="donationStyle.css">
+    <link href="https://fonts.cdnfonts.com/css/hangyaboly" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script>
+
+        window.onload = function () {
+            let shelterSection = document.getElementById("shelter-section");
+            let campusSection = document.getElementById("campus-section");
+            let paymentMethodForm = document.getElementById("payment-method-form");
+
+            paymentMethodForm.classList.add("hidden")
+            shelterSection.classList.add("hidden")
+            campusSection.classList.add("hidden")
+
+
+
+        };
+        function togglePaymentFields() {
+            let cardDetails = document.getElementById("card-details");
+            let ewalletDetails = document.getElementById("ewallet-details");
+            let paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+
+            cardDetails.classList.add("hidden");
+            ewalletDetails.classList.add("hidden");
+
+
+            if (paymentMethod === "card") {
+                cardDetails.classList.remove("hidden");
+            } else if (paymentMethod === "e-wallet") {
+                ewalletDetails.classList.remove("hidden");
+            }
+        }
+
+        function toggleDonationType() {
+            let donationMethod = document.querySelector('input[name="donation-type"]:checked').value;
+            let paymentMethodForm = document.getElementById("payment-method-form");
+            let cardDetails = document.getElementById("card-details");
+            let ewalletDetails = document.getElementById("ewallet-details");
+            let shelterSection = document.getElementById("shelter-section");
+            let campusSection = document.getElementById("campus-section");
+
+            paymentMethodForm.classList.add("hidden")
+            shelterSection.classList.add("hidden")
+            campusSection.classList.add("hidden")
+            document.querySelectorAll('input[name="shelter"]').forEach((radio) => {
+                radio.checked = false;
+            });
+
+
+
+            if (donationMethod === "monetary") {
+                paymentMethodForm.classList.remove("hidden")
+                shelterSection.classList.remove("hidden")
+                closeDonationForm()
+
+                document.querySelectorAll('input[name="campus"]').forEach((radio) => {
+                    radio.checked = false;
+                });
+
+            } else if (donationMethod === "in-kind") {
+                paymentMethodForm.classList.add("hidden")
+                cardDetails.classList.add("hidden");
+                campusSection.classList.remove("hidden")
+                ewalletDetails.classList.add("hidden");
+                document.querySelectorAll('input[name="payment-method"]').forEach((radio) => {
+                    radio.checked = false;
+                });
+
+            }
+
+
+
+        }
+        function openDonationForm() {
+            document.getElementById("donationOverlay").style.display = "block";
+            document.getElementById("donationFormPopup").style.display = "block";
+            document.getElementById("donation-block").style.top = "70%"
+
+            
+        }
+
+        function closeDonationForm() {
+            document.getElementById("donationForm").reset();
+            document.getElementById("donationOverlay").style.display = "none";
+            document.getElementById("donationFormPopup").style.display = "none";
+            document.getElementById("donation-block").style.top = "50%"
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <header id="HomePageHeader">
+        <div class="left">
+            <a href="aboutUs.html">ABOUT US</a>
+            <a href="donation.html">GET INVOLVED</a>
+            <div class="down">
+                <i class="bx bxs-envelope"></i>
+                FURAHEARTDONATION@GMAIL.COM
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="logo" onclick="window.location.href='index.html'">
+                FurAHeart<br />
+                <span class="logo">Donation Website</span>
+            </div>
+        </div>
+        <div class="right">
+            <a href="aboutUs.html">CONTACT US</a>
+            <div class="down_right">
+                <i class="bx bxs-phone-call"></i>
+                <span>#123-456-789</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="donation-section" id="donation-block">
+        <div class="donation-form">
+            <h2>Donate Now</h2>
+
+            <div class="form-section">
+                <h3>Donation Type</h3>
+                <label>
+                    <input type="radio" name="donation-type" value="monetary" onclick="toggleDonationType()"> Monetary
+                </label>
+                <label>
+                    <input type="radio" name="donation-type" value="in-kind" onclick="toggleDonationType()"> In-Kind
+                </label>
+            </div>
+
+
+            <div class="form-section">
+                <h3>Basic Information</h3>
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="contact" placeholder="Contact Information" required>
+                <input type="text" name="address" placeholder="Address" required>
+            </div>
+
+
+            <div class="form-section" id="payment-method-form">
+                <h3>Mode of Payment</h3>
+                <label>
+                    <input type="radio" name="payment-method" value="card" onclick="togglePaymentFields()"> Card
+                </label>
+                <label>
+                    <input type="radio" name="payment-method" value="e-wallet" onclick="togglePaymentFields()"> E-Wallet
+                </label>
+                <label>
+                    <input type="radio" name="payment-method" value="cebuana" onclick="togglePaymentFields()"> Cebuana
+                </label>
+            </div>
+
+
+            <div id="card-details" class="hidden">
+                <h3>Card Details</h3>
+                <input type="text" name="card-number" placeholder="Card Number">
+                <input type="text" name="card-name" placeholder="Cardholder Name">
+                <input type="text" name="expiry" placeholder="MM/YY">
+                <input type="text" name="cvv" placeholder="CVV">
+            </div>
+
+
+            <div id="ewallet-details" class="hidden">
+                <h3>E-Wallet Details</h3>
+                <label for="ewallet-type">Choose E-Wallet:</label>
+                <select id="ewallet-type">
+                    <option value="gcash">GCash</option>
+                    <option value="paymaya">PayMaya</option>
+                </select>
+                <input type="tel" name="ewallet-number" placeholder="Mobile Number">
+            </div>
+
+            <div class="form-section" id="campus-section">
+                <h3>Choose a Campus</h3>
+                <label>
+                    <input type="radio" name="campus" value="nu-moa" checked> NU-MOA
+                </label>
+                <label>
+                    <input type="radio" name="campus" value="nu-main"> NU-MANILA
+                </label>
+                <label>
+                    <input type="radio" name="campus" value="nu-laguna"> NU-LAGUNA
+                </label>
+                <label>
+                    <input type="radio" name="campus" value="nu-baliwag"> NU-BALIWAG
+                </label>
+                <label>
+                    <input type="radio" name="campus" value="nu-dasmarinas"> NU-DASMARINAS
+                </label>
+                <label>
+                    <input type="radio" name="campus" value="nu-fairview"> NU-FAIRVIEW
+                </label>
+                <button type="submit" onclick="openDonationForm()">Form</button>
+            </div>
+
+            <div class="form-section" id="shelter-section">
+                <h3>Choose a Shelter</h3>
+                <label>
+                    <input type="radio" name="shelter" value="shelter-a" checked> Shelter A
+                </label>
+                <label>
+                    <input type="radio" name="shelter" value="shelter-b"> Shelter B
+                </label>
+                <label>
+                    <input type="radio" name="shelter" value="shelter-c"> Shelter C
+                </label>
+
+            </div>
+
+            <div class="overlay" id="donationOverlay"></div>
+            <div class="donation-form-popup" id="donationFormPopup">
+                <h3>In-Kind Donation</h3>
+                <form id="donationForm">
+                    <label for="donorName">Your Name:</label>
+                    <input type="text" id="donorName" name="donorName" required><br><br>
+
+                    <label for="contact">Email/Phone Number:</label>
+                    <input type="text" id="contact" name="contact" required><br><br>
+
+                    <label for="donationType">Type of Donation:</label>
+                    <select id="donationType" name="donationType" required>
+                        <option value="food">Pet Food</option>
+                        <option value="toys">Toys</option>
+                        <option value="beds">Beds</option>
+                        <option value="medical">Medical Supplies</option>
+                        <option value="other">Other</option>
+                    </select><br><br>
+
+                    <label for="description">Description/Quantity:</label>
+                    <textarea id="description" name="description" required></textarea><br><br>
+
+                    <label>Drop-off or Pickup:</label>
+                    <input type="radio" id="dropoff" name="delivery" value="dropoff" required>
+                    <label for="dropoff">Drop-off</label>
+                    <input type="radio" id="pickup" name="delivery" value="pickup" required>
+                    <label for="pickup">Need Pickup</label><br><br>
+
+                    <label for="notes">Additional Notes (Optional):</label>
+                    <textarea id="notes" name="notes"></textarea><br><br>
+
+                    <button type="submit" class="donate-button">Submit</button>
+                    <button type="button" class="close-btn" onclick="closeDonationForm()">Close</button>
+                </form>
+            </div>
+
+
+
+
+
+            <button type="submit">Donate</button>
+
+
+
+
+        </div>
+    </section>
+
+
+
+
+
+</body>
+
+</html>
